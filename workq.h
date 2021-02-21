@@ -25,6 +25,8 @@ typedef struct q_s {
     int head;
     int tail;
     q_mesg_t msgs[Q_PERQ_MEGS_MAX];
+    int send_cnt;
+    int recv_cnt;
 }q_t;
 
 /**
@@ -35,6 +37,7 @@ typedef struct q_s {
 typedef struct work_q_s {
     q_t up_q;
     q_t down_q;
+    char name[32];
 } work_q_t;
 
 
