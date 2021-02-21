@@ -22,13 +22,15 @@ typedef struct q_mesg_s {
  * workQ's contain a queue pair
  */
 typedef struct q_s {
-    int in;
-    int out;
+    int head;
+    int tail;
     q_mesg_t msgs[Q_PERQ_MEGS_MAX];
 }q_t;
 
 /**
- * 
+ * work_q links services 
+ * services have one input work_q and one or many output 
+ * work_q's 
  */
 typedef struct work_q_s {
     q_t up_q;
